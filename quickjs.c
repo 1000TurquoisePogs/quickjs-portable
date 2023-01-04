@@ -32445,8 +32445,12 @@ static __exception int compute_stack_size(JSContext *ctx,
     js_free(ctx, s->stack_level_tab);
     js_free(ctx, s->pc_stack);
     *pstack_size = s->stack_len_max;
-    return 0;
+    //    return 0;
  fail:
+    JSRuntime *rt = ctx->rt;
+    JSStackFrame *sf = s->frame;
+    sf->cur_pc = pos;
+    build_backtrace(ctx, rt->current_exception, NULL, 0, 0);
     js_free(ctx, s->stack_level_tab);
     js_free(ctx, s->pc_stack);
     *pstack_size = 0;
