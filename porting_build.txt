@@ -49,7 +49,7 @@ JavaScript code uses the new bignum (e.g. 12345n) type numbers yet.
 
 xlclang also does not support stdatomic directly, however, the atomic
 support for C++ seemed pretty good, so polyfill.h/c now expose a
-subset of <stdatomic.h>.  A full implemention could probably be made
+subset of <stdatomic.h>.  A full implementation could probably be made
 with a few more days effort.
 
 0) Do not use ac=1 option unless it is needed for testing/development!
